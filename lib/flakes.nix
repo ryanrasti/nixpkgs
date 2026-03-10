@@ -1,7 +1,12 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   Flake operations.
 */
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 {
 
   inherit (builtins)

@@ -1,5 +1,10 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 # Functions for copying sources to the Nix store.
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 
 # Tested in lib/tests/sources.sh
 let
@@ -305,6 +310,7 @@ let
   # not exported, used for commitIdFromGitRepo
   _commitIdFromGitRepoOrError =
     let
+      # ```typescript (file: any, path: any) => any```
       readCommitFromFile =
         file: path:
         let
@@ -428,6 +434,7 @@ let
         in
         if matchExt != null then lib.head matchExt else name;
       # apply function f to string x while the result shrinks
+      # ```typescript (f: (x: string) => string, x: string) => string```
       shrink =
         f: x:
         let

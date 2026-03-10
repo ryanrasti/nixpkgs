@@ -1,7 +1,12 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   Operations on attribute sets.
 */
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 
 let
   inherit (builtins) head length;
@@ -998,6 +1003,10 @@ rec {
 
     ```
     mapAttrs :: (String -> a -> b) -> { [String] :: a } -> { [String] :: b }
+    ```
+
+    ```typescript
+    (f: (name: string) => (value: any) => any) => <T extends Record<string, any>>(attrs: T) => T
     ```
 
     # Examples

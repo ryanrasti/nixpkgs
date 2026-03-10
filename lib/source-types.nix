@@ -1,4 +1,9 @@
-{ lib }:
+/* @ts
+import type { Lib } from "./default.nix";
+*/
+{
+  # @ts: Lib
+  lib }:
 
 let
   defaultSourceType = tname: {

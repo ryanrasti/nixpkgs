@@ -40,3 +40,9 @@ update-git-commits.txt
 
 # Usually used for manual backports
 .worktree/
+
+
+.exobox/
+native-preview.vsix
+typescript-go/
+by-name.d.ts

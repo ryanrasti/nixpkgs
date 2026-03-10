@@ -23,6 +23,7 @@ let
   # this is used both as a module and as specialArgs.
   # as a module it sets the _module special values, as specialArgs it makes `config`
   # unusable. this causes documentation attributes depending on `config` to fail.
+  # ```typescript any```
   config = {
     _module.check = false;
     _module.args = { };
@@ -44,6 +45,7 @@ let
       buildPackages.nixosOptionsDoc =
         attrs: (import "${nixosPath}/lib/make-options-doc") ({ inherit pkgs lib; } // attrs);
     };
+    # ```typescript any```
     config = config.config;
     options = eval.options;
     version = release;

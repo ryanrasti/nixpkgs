@@ -1,4 +1,10 @@
-{ lib }:
+/* @ts
+import type { Lib } from "./default.nix";
+*/
+{
+  # Not typed as Lib: trivial.nix self-references via lib.trivial,
+  # and Lib contains trivial, causing TS7022 circular initializer error.
+  lib }:
 
 let
   inherit (lib.trivial)
@@ -370,6 +376,10 @@ in
     ```
 
     :::
+
+    ```typescript
+    <A, B, C>(f: (a: A) => (b: B) => C) => (b: B) => (a: A) => C
+    ```
   */
   flip =
     f: a: b:
@@ -1313,6 +1323,7 @@ in
   toBaseDigits =
     base: i:
     let
+      # ```typescript (i: number) => number[]```
       go =
         i:
         if i < base then

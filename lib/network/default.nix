@@ -1,4 +1,9 @@
-{ lib }:
+/* @ts
+import type { Lib } from "../default.nix";
+*/
+{
+  # @ts: Lib
+  lib }:
 let
   inherit (import ./internal.nix { inherit lib; }) _ipv6;
   inherit (lib.strings) match concatStringsSep toLower;

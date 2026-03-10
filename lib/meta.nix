@@ -1,9 +1,14 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   Some functions for manipulating meta attributes, as well as the
   name attribute.
 */
 
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 
 let
   inherit (lib)

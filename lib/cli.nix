@@ -1,4 +1,9 @@
-{ lib }:
+/* @ts
+import type { Lib } from "./default.nix";
+*/
+{
+  # @ts: Lib
+  lib }:
 
 {
   /**
@@ -426,7 +431,7 @@
       handlePair =
         k: v:
         if k == "" then
-          lib.throw "lib.cli.toCommandLine only accepts non-empty option names."
+          builtins.throw "lib.cli.toCommandLine only accepts non-empty option names."
         else if builtins.isList v then
           builtins.concatMap (handleOption k) v
         else

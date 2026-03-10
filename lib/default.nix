@@ -1,3 +1,7 @@
+/* @ts
+import type { default as LibExport } from "./default.nix";
+export type Lib = typeof LibExport;
+*/
 /*
   Library of low-level helper functions for nix expressions.
 
@@ -8,6 +12,7 @@ let
 
   # A copy of `lib.makeExtensible'` in order to document `extend`.
   # It has been leading to some trouble, so we have to document it specially.
+  # ```typescript <T>(rattrs: new () => T) => T & { extend: <S>(f: (final: T & S) => (prev: T) => S) => T & S }```
   makeExtensible' =
     rattrs:
     let
@@ -42,9 +47,11 @@ let
     in
     self;
 
+  # ```typescript class Lib```
   lib = makeExtensible' (
     self:
     let
+      # ```typescript <F extends string>(file: F) => F extends { readonly __import: infer M } ? M extends (...args: any[]) => any ? ReturnType<M> : M : any```
       callLibs = file: import file { lib = self; };
     in
     {

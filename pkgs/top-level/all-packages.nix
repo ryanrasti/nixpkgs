@@ -1,3 +1,9 @@
+/* @ts
+import type { Lib } from "../../lib/default.nix";
+import type { default as AllPkgsFn } from "./all-packages.nix";
+export type Nixpkgs = ReturnType<ReturnType<ReturnType<ReturnType<typeof AllPkgsFn>>>> & ByNamePackages;
+declare const callPackage: <F extends string>(fn: F, args: any) => F extends { readonly __import: infer M } ? M extends (...args: any[]) => infer R ? R : M : any;
+*/
 /*
   The top-level package collection of nixpkgs.
   It is sorted by categories corresponding to the folder names in the /pkgs
@@ -7,6 +13,7 @@
   Hint: ### starts category names.
 */
 {
+  # @ts: Lib
   lib,
   noSysDirs,
   config,

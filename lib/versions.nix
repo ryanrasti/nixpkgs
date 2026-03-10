@@ -1,5 +1,10 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 # Version string functions.
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 
 rec {
 

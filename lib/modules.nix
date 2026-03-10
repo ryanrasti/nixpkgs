@@ -1,4 +1,9 @@
-{ lib }:
+/* @ts
+import type { Lib } from "./default.nix";
+*/
+{
+  # @ts: Lib
+  lib }:
 
 let
   inherit (lib)
@@ -416,6 +421,7 @@ let
     let
 
       # Like unifyModuleSyntax, but also imports paths and calls functions if necessary
+      # ```typescript (args: any, fallbackFile: any, fallbackKey: any, m: any) => any```
       loadModule =
         args: fallbackFile: fallbackKey: m:
         if isFunction m then
@@ -1319,6 +1325,7 @@ let
 
     : 1\. Function argument
   */
+  # ```typescript (cfg: any) => any```
   pushDownProperties =
     cfg:
     if cfg._type or "" == "merge" then
@@ -1348,6 +1355,7 @@ let
 
     : 1\. Function argument
   */
+  # ```typescript (def: any) => any```
   dischargeProperties =
     def:
     if def._type or "" == "merge" then

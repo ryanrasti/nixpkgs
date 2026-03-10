@@ -391,5 +391,5 @@ in
   inherit buildNeovimPlugin;
 }
 // lib.optionalAttrs config.allowAliases {
-  buildNeovimPluginFrom2Nix = throw "buildNeovimPluginFrom2Nix was renamed to buildNeovimPlugin" buildNeovimPlugin; # converted to throw on 2025-12-30
+  buildNeovimPluginFrom2Nix = throw "buildNeovimPluginFrom2Nix was renamed to buildNeovimPlugin"; # converted to throw on 2025-12-30
 }

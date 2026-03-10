@@ -1,4 +1,9 @@
-{ lib }:
+/* @ts
+import type { Lib } from "../default.nix";
+*/
+{
+  # @ts: Lib
+  lib }:
 
 let
   inherit (lib)
@@ -94,6 +99,7 @@ let
 
   # Input : attrSet, [ [name default] ... ], name
   # Output : its value or default.
+  # ```typescript (attrSet: any, argList: any, name: any) => any```
   getValue =
     attrSet: argList: name:
     (attrByPath [ name ] (
@@ -110,6 +116,7 @@ let
 
   # Input : attrSet, [[name default] ...], [ [flagname reqs..] ... ]
   # Output : are reqs satisfied? It's asserted.
+  # ```typescript (attrSet: any, argList: any, condList: any) => any```
   checkReqs =
     attrSet: argList: condList:
     (foldr and true (
@@ -141,6 +148,7 @@ let
       acc ? [ ],
     }:
     let
+      # ```typescript (xs: any[], acc: any[]) => any[]```
       go =
         xs: acc:
         if xs == [ ] then
@@ -154,6 +162,7 @@ let
     in
     go inputList acc;
 
+  # ```typescript (args: any) => any[]```
   uniqListExt =
     {
       inputList,
@@ -175,6 +184,7 @@ let
         inherit getter compare;
       };
 
+  # ```typescript (name: string, list: any[], checker: any) => string```
   condConcat =
     name: list: checker:
     if list == [ ] then
@@ -187,6 +197,7 @@ let
   lazyGenericClosure =
     { startSet, operator }:
     let
+      # ```typescript (list: any[], doneKeys: any[], result: any[]) => any[]```
       work =
         list: doneKeys: result:
         if list == [ ] then
@@ -203,11 +214,13 @@ let
     in
     work startSet [ ] [ ];
 
+  # ```typescript (f: any, x: any, a: any, b: any) => any```
   innerModifySumArgs =
     f: x: a: b:
     if b == null then (f a b) // x else innerModifySumArgs f x (a // b);
   modifySumArgs = f: x: innerModifySumArgs f x { };
 
+  # ```typescript (acc: any[], xs: any[]) => any[]```
   innerClosePropagation =
     acc: xs:
     if xs == [ ] then

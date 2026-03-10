@@ -153,6 +153,7 @@ let
 
   # Create a standard environment by downloading pre-built binaries of
   # coreutils, GCC, etc.
+  # ```typescript any```
   stage0 = import ./stage0.nix {
     inherit
       lib

@@ -1,3 +1,6 @@
+/* @ts
+import type { Lib } from "../default.nix";
+*/
 /**
   <!-- This anchor is here for backwards compatibility -->
   []{#sec-fileset}
@@ -96,7 +99,9 @@
   - `./a/b` as a file set contains only `a/b/y`.
   - `./c` as a file set is empty, since neither `c` nor `c/d` contain any files.
 */
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 let
 
   inherit (import ./internal.nix { inherit lib; })

@@ -1,7 +1,12 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   General list operations.
 */
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 let
   inherit (lib.strings) toInt;
   inherit (lib.trivial)
@@ -274,6 +279,8 @@ rec {
     ```
 
     :::
+
+
   */
   foldl' =
     op: acc:

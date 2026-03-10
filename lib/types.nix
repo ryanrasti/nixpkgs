@@ -1,6 +1,12 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 # Definitions related to run-time type checking.  Used in particular
 # to type-check NixOS configurations.
-{ lib }:
+{
+  # Not typed as Lib: types.nix self-references via lib.types,
+  # and Lib contains types, causing TS7022 circular initializer error.
+  lib }:
 
 let
   inherit (lib)

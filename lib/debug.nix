@@ -1,3 +1,6 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   Collection of functions useful for debugging
   broken nix expressions.
@@ -13,7 +16,9 @@
     function as their first argument, which is applied
     to the traced value before it is printed.
 */
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 let
   inherit (lib)
     concatMapStringsSep
@@ -649,6 +654,7 @@ rec {
           ${toPretty failure.result}
         '';
 
+        # ```typescript any```
         traceFailures = foldl' (_accumulator: failure: traceVal (failureToPretty failure)) null failures;
       in
       throw (

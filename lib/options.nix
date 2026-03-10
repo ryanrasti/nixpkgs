@@ -1,7 +1,12 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   Module System option handling.
 */
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 
 let
   inherit (lib)
@@ -567,6 +572,7 @@ rec {
   # the set generated with filterOptionSets.
   optionAttrSetToDocList = optionAttrSetToDocList' [ ];
 
+  # ```typescript (_: any, options: any) => any[]```
   optionAttrSetToDocList' =
     _: options:
     concatMap (

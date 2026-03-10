@@ -1,4 +1,9 @@
-{ lib, ... }:
+/* @ts
+import type { Lib } from "./default.nix";
+*/
+{
+  # @ts: Lib
+  lib, ... }:
 rec {
   /**
     `fix f` computes the fixed point of the given function `f`. In other words, the return value is `x` in `x = f x`.
@@ -88,6 +93,10 @@ rec {
     ```
 
     :::
+
+    ```typescript
+    <A>(f: (a: A) => A) => A
+    ```
   */
   fix =
     f:
@@ -113,6 +122,10 @@ rec {
 
     ```
     fix' :: (a -> a) -> a
+    ```
+
+    ```typescript
+    <A>(f: (a: A) => A) => A
     ```
   */
   fix' =
@@ -321,6 +334,10 @@ rec {
     ```
 
     :::
+
+    ```typescript
+    <Ext>(overlay: (final: any) => (prev: any) => Ext) => <Base>(f: (self: any) => Base) => (self: any) => Base & Ext
+    ```
   */
   extends =
     overlay: f:

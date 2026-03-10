@@ -1,4 +1,9 @@
-{ lib }:
+/* @ts
+import type { Lib } from "./default.nix";
+*/
+{
+  # @ts: Lib
+  lib }:
 
 let
   inherit (builtins)
@@ -627,6 +632,10 @@ rec {
     ```
     makeScope :: (AttrSet -> ((AttrSet -> a) | Path) -> AttrSet -> a) -> (AttrSet -> AttrSet) -> Scope
     ```
+
+    ```typescript
+    <T>(newScope: any) => (f: (self: T) => T) => T
+    ```
   */
   makeScope =
     newScope: f:
@@ -702,6 +711,10 @@ rec {
       pkgsHostTarget :: AttrSet;
       pkgsTargetTarget :: AttrSet;
     }
+    ```
+
+    ```typescript
+    (args: any) => (opts: any) => any
     ```
   */
   makeScopeWithSplicing' =

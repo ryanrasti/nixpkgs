@@ -1,6 +1,11 @@
+/* @ts
+import type { Lib } from "../default.nix";
+*/
 # Functions for working with path values.
 # See ./README.md for internal docs
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 let
 
   inherit (builtins)
@@ -125,6 +130,7 @@ let
   # because it can distinguish different filesystem roots
   deconstructPath =
     let
+      # ```typescript (components: any, base: any) => any```
       recurse =
         components: base:
         # If the parent of a path is the path itself, then it's a filesystem root

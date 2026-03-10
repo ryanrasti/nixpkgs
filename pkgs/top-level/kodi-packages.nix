@@ -268,8 +268,7 @@ self
 
   controllers =
     throw
-      "kodi.packages.controllers has been replaced with kodi.packages.controller-topology-project - a package which contains a large number of controller profiles."
-      { };
+      "kodi.packages.controllers has been replaced with kodi.packages.controller-topology-project - a package which contains a large number of controller profiles.";
 
   svtplay = throw "kodiPackages.svtplay has been removed because it has been marked as broken since at least November 2024."; # Added 2025-10-12
 }

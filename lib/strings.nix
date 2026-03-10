@@ -1,7 +1,12 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   String manipulation functions.
 */
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 let
 
   inherit (builtins) length;
@@ -487,7 +492,7 @@ rec {
     # Type
 
     ```
-    trimWith :: { start :: Bool; end :: Bool; } -> String -> String
+    trimWith :: { start :: Bool ? false; end :: Bool ? false; } -> String -> String
     ```
 
     # Examples
@@ -588,7 +593,7 @@ rec {
     # Type
 
     ```
-    makeSearchPathOutput :: String -> String -> [Derivation] -> String
+    makeSearchPathOutput :: String -> String -> [(Derivation | String)] -> String
     ```
 
     # Examples
@@ -618,7 +623,7 @@ rec {
     # Type
 
     ```
-    makeLibraryPath :: [Derivation] -> String
+    makeLibraryPath :: [(Derivation | String)] -> String
     ```
 
     # Examples
@@ -649,7 +654,7 @@ rec {
     # Type
 
     ```
-    makeIncludePath :: [Derivation] -> String
+    makeIncludePath :: [(Derivation | String)] -> String
     ```
 
     # Examples
@@ -680,7 +685,7 @@ rec {
     # Type
 
     ```
-    makeBinPath :: [Derivation] -> String
+    makeBinPath :: [(Derivation | String)] -> String
     ```
 
     # Examples
@@ -780,7 +785,7 @@ rec {
     # Type
 
     ```
-    hasPrefix :: String -> String -> Bool
+    hasPrefix :: String -> (Derivation | String) -> Bool
     ```
 
     # Examples
@@ -823,7 +828,7 @@ rec {
     # Type
 
     ```
-    hasSuffix :: String -> String -> Bool
+    hasSuffix :: String -> (Derivation | String) -> Bool
     ```
 
     # Examples
@@ -869,7 +874,7 @@ rec {
     # Type
 
     ```
-    hasInfix :: String -> String -> Bool
+    hasInfix :: String -> (Derivation | String) -> Bool
     ```
 
     # Examples
@@ -1705,7 +1710,7 @@ rec {
     # Type
 
     ```
-    splitString :: String -> String -> [String]
+    splitString :: String -> (Derivation | String) -> [String]
     ```
 
     # Examples

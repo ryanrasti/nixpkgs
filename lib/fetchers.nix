@@ -1,5 +1,10 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 # snippets that can be shared by multiple fetchers (pkgs/build-support)
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 let
   commonH = hashTypes: rec {
     hashNames = [ "hash" ] ++ hashTypes;

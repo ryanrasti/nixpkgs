@@ -1,8 +1,13 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   Functions for querying information about the filesystem
   without copying any files to the Nix store.
 */
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 
 # Tested in lib/tests/filesystem.sh
 let
@@ -193,6 +198,7 @@ in
   locateDominatingFile =
     pattern: file:
     let
+      # ```typescript (path: any) => any```
       go =
         path:
         let

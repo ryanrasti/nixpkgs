@@ -701,6 +701,7 @@ rec {
   _shortenTreeBase =
     targetBaseComponents: fileset:
     let
+      # ```typescript (index: number) => any```
       recurse =
         index:
         # If we haven't reached the required depth yet
@@ -719,6 +720,7 @@ rec {
   _lengthenTreeBase =
     targetBaseComponents: fileset:
     let
+      # ```typescript (index: number, tree: any) => any```
       recurse =
         index: tree:
         # If the filesetTree is an attribute set and we haven't reached the required depth yet

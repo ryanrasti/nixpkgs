@@ -1,3 +1,6 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   A partial and basic implementation of GVariant formatted strings.
   See [GVariant Format Strings](https://docs.gtk.org/glib/gvariant-format-strings.html) for details.
@@ -10,7 +13,9 @@
 
 # This file is based on https://github.com/nix-community/home-manager
 # Copyright (c) 2017-2022 Home Manager contributors
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 
 let
   inherit (lib)

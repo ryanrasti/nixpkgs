@@ -72,7 +72,7 @@ python3.pkgs.buildPythonApplication rec {
   ];
 
   optional-dependencies = {
-    hue = with pyproject.pkgs; [ python-mbedtls ];
+    hue = with python3.pkgs; [ python-mbedtls ];
   };
 
   nativeCheckInputs = with python3.pkgs; [

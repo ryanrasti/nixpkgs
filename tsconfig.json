@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "strict": true,
+    // TODO: remove once core lib/ and common packages are annotated
+    "noImplicitAny": false,
+    "noEmit": true,
+    "noLib": true,
+    "allowArbitraryExtensions": true,
+    "typeRoots": []
+  },
+  "include": [
+    "builtins.d.ts",
+
+    "by-name.d.ts",
+    "**/*.nix"
+  ]
+}

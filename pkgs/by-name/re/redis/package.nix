@@ -1,3 +1,10 @@
+/**
+  # Type
+
+  ```
+  default :: Nixpkgs -> Derivation
+  ```
+*/
 {
   lib,
   stdenv,

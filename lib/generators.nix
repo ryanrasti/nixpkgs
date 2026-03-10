@@ -1,3 +1,6 @@
+/* @ts
+import type { Lib } from "./default.nix";
+*/
 /**
   Functions that generate widespread file
   formats from nix data structures.
@@ -18,7 +21,9 @@
 
   Further Documentation can be found [here](#sec-generators).
 */
-{ lib }:
+{
+  # @ts: Lib
+  lib }:
 
 let
   inherit (lib)
